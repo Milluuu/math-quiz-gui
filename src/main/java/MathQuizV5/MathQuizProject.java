@@ -11,6 +11,10 @@ package MathQuizV5;
 public class MathQuizProject {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        
+        StartupScreen initialScreen = new StartupScreen();
+        initialScreen.setVisible(true);      
+        
     }
 }
