@@ -33,6 +33,7 @@ public class StartupScreen extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
+        SignupButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +64,13 @@ public class StartupScreen extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel2.setText("Log in");
 
+        SignupButton.setText("Sign up");
+        SignupButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SignupButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,8 +98,10 @@ public class StartupScreen extends javax.swing.JFrame {
                                 .addGap(358, 358, 358))))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SignupButton)
+                .addGap(18, 18, 18)
                 .addComponent(SignInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(344, 344, 344))
+                .addGap(293, 293, 293))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +118,9 @@ public class StartupScreen extends javax.swing.JFrame {
                     .addComponent(PasswordButton)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(SignInButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SignInButton)
+                    .addComponent(SignupButton))
                 .addGap(159, 159, 159))
         );
 
@@ -127,10 +139,15 @@ public class StartupScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
+    private void SignupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SignupButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PasswordButton;
     private javax.swing.JButton SignInButton;
+    private javax.swing.JButton SignupButton;
     private javax.swing.JButton UsernameButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -55,8 +55,10 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="SignupButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="SignInButton" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="293" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -77,7 +79,10 @@
                   <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="SignInButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="SignInButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="SignupButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -127,6 +132,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Log in"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="SignupButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Sign up"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SignupButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

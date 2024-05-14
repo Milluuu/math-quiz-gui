@@ -12,7 +12,7 @@ public class MathQuizProject {
 
     public static void main(String[] args) {
         
-        
+        DbManager manager = new DbManager();
         StartupScreen initialScreen = new StartupScreen();
         initialScreen.setVisible(true);      
         
