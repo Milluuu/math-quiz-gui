@@ -131,17 +131,17 @@ public class StartupScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_SignInButtonActionPerformed
 
-    private void UsernameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameButtonActionPerformed
+    private void SignupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameButtonActionPerformed
+    }//GEN-LAST:event_SignupButtonActionPerformed
 
     private void PasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordButtonActionPerformed
 
-    private void SignupButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignupButtonActionPerformed
+    private void UsernameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SignupButtonActionPerformed
+    }//GEN-LAST:event_UsernameButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

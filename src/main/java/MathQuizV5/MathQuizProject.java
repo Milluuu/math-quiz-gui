@@ -4,6 +4,8 @@
 
 package MathQuizV5;
 
+import javax.swing.*;
+
 /**
  *
  * @author Milu
@@ -11,8 +13,8 @@ package MathQuizV5;
 public class MathQuizProject {
 
     public static void main(String[] args) {
-        
-        DbManager manager = new DbManager();
+       
+//        DbManager manager = new DbManager();
         StartupScreen initialScreen = new StartupScreen();
         initialScreen.setVisible(true);      
         
