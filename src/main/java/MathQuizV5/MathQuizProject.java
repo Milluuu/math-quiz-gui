@@ -4,7 +4,6 @@
 
 package MathQuizV5;
 
-import javax.swing.*;
 
 /**
  *
