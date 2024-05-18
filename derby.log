@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Thu May 16 15:08:32 NZST 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018f-7f5f-715c-0000073cd6e0 
+Sat May 18 14:46:05 NZST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018f-8997-9a7c-0000073cd6e0 
 on database directory /home/adrian/Documents/COMP603/math-quiz/math-quiz-gui/MathQuizDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 
 Loaded from file:/home/adrian/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Ubuntu

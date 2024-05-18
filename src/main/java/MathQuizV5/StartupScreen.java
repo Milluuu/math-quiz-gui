@@ -54,7 +54,14 @@ public class StartupScreen extends javax.swing.JFrame {
         cAccountBtn = new javax.swing.JButton();
         cPasswordField = new javax.swing.JPasswordField();
         gameModePanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        gameModeLbl = new javax.swing.JLabel();
+        scienceBtn = new javax.swing.JButton();
+        bToMenuBtn = new javax.swing.JButton();
+        gameInfoPanel = new javax.swing.JPanel();
+        startBtn = new javax.swing.JButton();
+        infoTextArea = new javax.swing.JScrollPane();
+        gameInfoTxtArea = new javax.swing.JTextArea();
+        backBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -110,7 +117,7 @@ public class StartupScreen extends javax.swing.JFrame {
                                     .addComponent(SignupButton)
                                     .addGap(41, 41, 41)
                                     .addComponent(SignInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,16 +172,17 @@ public class StartupScreen extends javax.swing.JFrame {
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(335, 335, 335)
-                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(playBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(highScoreBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(playBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(highScoreBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+                    .addGroup(menuPanelLayout.createSequentialGroup()
+                        .addGap(291, 291, 291)
+                        .addComponent(menuLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(291, 291, 291)
-                .addComponent(menuLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 328, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,7 +219,7 @@ public class StartupScreen extends javax.swing.JFrame {
         registerPanelLayout.setHorizontalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                .addContainerGap(275, Short.MAX_VALUE)
+                .addContainerGap(361, Short.MAX_VALUE)
                 .addComponent(createAccLbl)
                 .addGap(270, 270, 270))
             .addGroup(registerPanelLayout.createSequentialGroup()
@@ -249,27 +257,95 @@ public class StartupScreen extends javax.swing.JFrame {
 
         getContentPane().add(registerPanel, "card4");
 
-        jLabel1.setFont(new java.awt.Font("Fira Sans", 0, 36)); // NOI18N
-        jLabel1.setText("Choose game mode");
+        gameModeLbl.setFont(new java.awt.Font("Fira Sans", 0, 36)); // NOI18N
+        gameModeLbl.setText("Choose game mode");
+
+        scienceBtn.setText("Science");
+        scienceBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                scienceBtnActionPerformed(evt);
+            }
+        });
+
+        bToMenuBtn.setText("Back");
+        bToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bToMenuBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout gameModePanelLayout = new javax.swing.GroupLayout(gameModePanel);
         gameModePanel.setLayout(gameModePanelLayout);
         gameModePanelLayout.setHorizontalGroup(
             gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameModePanelLayout.createSequentialGroup()
-                .addGap(238, 238, 238)
-                .addComponent(jLabel1)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addGroup(gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gameModePanelLayout.createSequentialGroup()
+                        .addGap(238, 238, 238)
+                        .addComponent(gameModeLbl))
+                    .addGroup(gameModePanelLayout.createSequentialGroup()
+                        .addGap(326, 326, 326)
+                        .addGroup(gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scienceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(368, Short.MAX_VALUE))
         );
         gameModePanelLayout.setVerticalGroup(
             gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameModePanelLayout.createSequentialGroup()
                 .addGap(124, 124, 124)
-                .addComponent(jLabel1)
-                .addContainerGap(325, Short.MAX_VALUE))
+                .addComponent(gameModeLbl)
+                .addGap(33, 33, 33)
+                .addComponent(scienceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(bToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(120, Short.MAX_VALUE))
         );
 
         getContentPane().add(gameModePanel, "card5");
+
+        startBtn.setText("Start");
+
+        gameInfoTxtArea.setColumns(20);
+        gameInfoTxtArea.setFont(new java.awt.Font("Fira Sans", 0, 24)); // NOI18N
+        gameInfoTxtArea.setRows(5);
+        gameInfoTxtArea.setText("In this game mode, you will be given randomized science related \nmath questions. You are given a limit of 10 minutes to answer as \nmany questions within the time frame. ");
+        infoTextArea.setViewportView(gameInfoTxtArea);
+
+        backBtn.setText("Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout gameInfoPanelLayout = new javax.swing.GroupLayout(gameInfoPanel);
+        gameInfoPanel.setLayout(gameInfoPanelLayout);
+        gameInfoPanelLayout.setHorizontalGroup(
+            gameInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameInfoPanelLayout.createSequentialGroup()
+                .addContainerGap(106, Short.MAX_VALUE)
+                .addGroup(gameInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gameInfoPanelLayout.createSequentialGroup()
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(430, 430, 430)
+                        .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(infoTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 718, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106))
+        );
+        gameInfoPanelLayout.setVerticalGroup(
+            gameInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameInfoPanelLayout.createSequentialGroup()
+                .addContainerGap(175, Short.MAX_VALUE)
+                .addComponent(infoTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addGroup(gameInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(startBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(87, 87, 87))
+        );
+
+        getContentPane().add(gameInfoPanel, "card6");
 
         pack();
         setLocationRelativeTo(null);
@@ -324,10 +400,27 @@ public class StartupScreen extends javax.swing.JFrame {
            gameModePanel.setVisible(true);
     }//GEN-LAST:event_playBtnActionPerformed
 
+    private void bToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bToMenuBtnActionPerformed
+        gameModePanel.setVisible(false);
+        menuPanel.setVisible(true);
+    }//GEN-LAST:event_bToMenuBtnActionPerformed
+
+    private void scienceBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scienceBtnActionPerformed
+        gameModePanel.setVisible(false);
+        gameInfoPanel.setVisible(true);
+    }//GEN-LAST:event_scienceBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        gameInfoPanel.setVisible(false);
+        gameModePanel.setVisible(true);
+    }//GEN-LAST:event_backBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SignInButton;
     private javax.swing.JButton SignupButton;
+    private javax.swing.JButton bToMenuBtn;
+    private javax.swing.JButton backBtn;
     private javax.swing.JButton cAccountBtn;
     private javax.swing.JPasswordField cPasswordField;
     private javax.swing.JLabel cPasswordLbl;
@@ -335,9 +428,12 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JLabel cUserNameLbl;
     private javax.swing.JLabel createAccLbl;
     private javax.swing.JButton exitBtn;
+    private javax.swing.JPanel gameInfoPanel;
+    private javax.swing.JTextArea gameInfoTxtArea;
+    private javax.swing.JLabel gameModeLbl;
     private javax.swing.JPanel gameModePanel;
     private javax.swing.JButton highScoreBtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane infoTextArea;
     private javax.swing.JLabel loginLbl;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel logoLbl;
@@ -346,6 +442,8 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JLabel passwordsLbl;
     private javax.swing.JButton playBtn;
     private javax.swing.JPanel registerPanel;
+    private javax.swing.JButton scienceBtn;
+    private javax.swing.JButton startBtn;
     private javax.swing.JLabel userNameLbl;
     private javax.swing.JPasswordField userPasswordField;
     private javax.swing.JTextField userUsernameField;
