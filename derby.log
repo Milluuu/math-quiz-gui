@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Sat May 18 14:46:05 NZST 2024:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018f-8997-9a7c-0000073cd6e0 
-on database directory /home/adrian/Documents/COMP603/math-quiz/math-quiz-gui/MathQuizDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@55054057 
-Loaded from file:/home/adrian/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Ubuntu
-java.runtime.version=11.0.22+7-post-Ubuntu-0ubuntu222.04.1
-user.dir=/home/adrian/Documents/COMP603/math-quiz/math-quiz-gui
-os.name=Linux
+Tue May 21 22:05:37 NZST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018f-9a9d-1696-00000f8849d0 
+on database directory C:\Users\Milu\Desktop\MathQuizProject\MathQuizDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Loaded from file:/C:/Users/Milu/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=11.0.22+9-LTS-219
+user.dir=C:\Users\Milu\Desktop\MathQuizProject
+os.name=Windows 10
 os.arch=amd64
-os.version=6.8.0-76060800daily20240311-generic
+os.version=10.0
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

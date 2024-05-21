@@ -57,11 +57,18 @@ public class StartupScreen extends javax.swing.JFrame {
         gameModeLbl = new javax.swing.JLabel();
         scienceBtn = new javax.swing.JButton();
         bToMenuBtn = new javax.swing.JButton();
+        mathBtn = new javax.swing.JButton();
         gameInfoPanel = new javax.swing.JPanel();
         startBtn = new javax.swing.JButton();
         infoTextArea = new javax.swing.JScrollPane();
         gameInfoTxtArea = new javax.swing.JTextArea();
         backBtn = new javax.swing.JButton();
+        mathMode = new javax.swing.JPanel();
+        QuestionLabel = new javax.swing.JLabel();
+        QuestionNumberLbl = new javax.swing.JLabel();
+        quitToMenuBtn = new javax.swing.JButton();
+        nextMathQuestionBtn = new javax.swing.JButton();
+        answerField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -99,45 +106,44 @@ public class StartupScreen extends javax.swing.JFrame {
                     .addGroup(loginPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(loginPanelLayout.createSequentialGroup()
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(66, 66, 66))
-                        .addGroup(loginPanelLayout.createSequentialGroup()
-                            .addGap(250, 250, 250)
-                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(passwordsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(userNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(18, 18, 18)
-                            .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(userUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(loginPanelLayout.createSequentialGroup()
-                                    .addComponent(SignupButton)
-                                    .addGap(41, 41, 41)
-                                    .addComponent(SignInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(367, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                        .addGap(274, 274, 274)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(userNameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordsLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(loginPanelLayout.createSequentialGroup()
+                                .addComponent(SignupButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(SignInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(353, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(397, 397, 397))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userNameLbl)
-                    .addComponent(userUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(userNameLbl))
                 .addGap(18, 18, 18)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordsLbl))
+                    .addComponent(passwordsLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SignInButton)
-                    .addComponent(SignupButton))
+                    .addComponent(SignupButton)
+                    .addComponent(SignInButton))
                 .addGap(154, 154, 154))
         );
 
@@ -174,28 +180,28 @@ public class StartupScreen extends javax.swing.JFrame {
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(335, 335, 335)
-                        .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(playBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(exitBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(highScoreBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+                        .addGap(367, 367, 367)
+                        .addComponent(menuLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(menuPanelLayout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(menuLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(400, 400, 400)
+                        .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(highScoreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(playBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(116, 116, 116)
                 .addComponent(menuLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(playBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(61, 61, 61)
+                .addComponent(playBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(highScoreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(31, 31, 31)
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
 
         getContentPane().add(menuPanel, "card3");
@@ -219,7 +225,7 @@ public class StartupScreen extends javax.swing.JFrame {
         registerPanelLayout.setHorizontalGroup(
             registerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerPanelLayout.createSequentialGroup()
-                .addContainerGap(361, Short.MAX_VALUE)
+                .addContainerGap(366, Short.MAX_VALUE)
                 .addComponent(createAccLbl)
                 .addGap(270, 270, 270))
             .addGroup(registerPanelLayout.createSequentialGroup()
@@ -252,7 +258,7 @@ public class StartupScreen extends javax.swing.JFrame {
                     .addComponent(cPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(cAccountBtn)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
 
         getContentPane().add(registerPanel, "card4");
@@ -274,32 +280,42 @@ public class StartupScreen extends javax.swing.JFrame {
             }
         });
 
+        mathBtn.setText("Math");
+        mathBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mathBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout gameModePanelLayout = new javax.swing.GroupLayout(gameModePanel);
         gameModePanel.setLayout(gameModePanelLayout);
         gameModePanelLayout.setHorizontalGroup(
             gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gameModePanelLayout.createSequentialGroup()
+                .addContainerGap(305, Short.MAX_VALUE)
                 .addGroup(gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gameModePanelLayout.createSequentialGroup()
-                        .addGap(238, 238, 238)
-                        .addComponent(gameModeLbl))
-                    .addGroup(gameModePanelLayout.createSequentialGroup()
-                        .addGap(326, 326, 326)
-                        .addGroup(gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(scienceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(368, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameModePanelLayout.createSequentialGroup()
+                        .addComponent(gameModeLbl)
+                        .addGap(300, 300, 300))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameModePanelLayout.createSequentialGroup()
+                        .addGroup(gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mathBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scienceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(410, 410, 410))))
         );
         gameModePanelLayout.setVerticalGroup(
             gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gameModePanelLayout.createSequentialGroup()
-                .addGap(124, 124, 124)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameModePanelLayout.createSequentialGroup()
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addComponent(gameModeLbl)
-                .addGap(33, 33, 33)
-                .addComponent(scienceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addComponent(bToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addGap(51, 51, 51)
+                .addComponent(mathBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(scienceBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(bToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
         );
 
         getContentPane().add(gameModePanel, "card5");
@@ -346,6 +362,65 @@ public class StartupScreen extends javax.swing.JFrame {
         );
 
         getContentPane().add(gameInfoPanel, "card6");
+
+        QuestionLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        QuestionLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        QuestionLabel.setText("(math question)");
+
+        QuestionNumberLbl.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        QuestionNumberLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        QuestionNumberLbl.setText("Question 1");
+
+        quitToMenuBtn.setText("Quit quiz");
+        quitToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quitToMenuBtnActionPerformed(evt);
+            }
+        });
+
+        nextMathQuestionBtn.setText("Next question");
+
+        javax.swing.GroupLayout mathModeLayout = new javax.swing.GroupLayout(mathMode);
+        mathMode.setLayout(mathModeLayout);
+        mathModeLayout.setHorizontalGroup(
+            mathModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mathModeLayout.createSequentialGroup()
+                .addGap(252, 252, 252)
+                .addComponent(quitToMenuBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addComponent(nextMathQuestionBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(210, 210, 210))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mathModeLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(mathModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mathModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mathModeLayout.createSequentialGroup()
+                            .addComponent(QuestionNumberLbl)
+                            .addGap(370, 370, 370))
+                        .addGroup(mathModeLayout.createSequentialGroup()
+                            .addComponent(QuestionLabel)
+                            .addGap(329, 329, 329)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mathModeLayout.createSequentialGroup()
+                        .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(384, 384, 384))))
+        );
+        mathModeLayout.setVerticalGroup(
+            mathModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mathModeLayout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addComponent(QuestionNumberLbl)
+                .addGap(44, 44, 44)
+                .addComponent(QuestionLabel)
+                .addGap(33, 33, 33)
+                .addComponent(answerField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(mathModeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(quitToMenuBtn)
+                    .addComponent(nextMathQuestionBtn))
+                .addGap(116, 116, 116))
+        );
+
+        getContentPane().add(mathMode, "card7");
 
         pack();
         setLocationRelativeTo(null);
@@ -415,10 +490,28 @@ public class StartupScreen extends javax.swing.JFrame {
         gameModePanel.setVisible(true);
     }//GEN-LAST:event_backBtnActionPerformed
 
+    private void mathBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mathBtnActionPerformed
+        gameModePanel.setVisible(false);
+        mathMode.setVisible(true);
+        displayMathQuestion();
+    }//GEN-LAST:event_mathBtnActionPerformed
+
+    private void quitToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitToMenuBtnActionPerformed
+        mathMode.setVisible(false);
+        gameModePanel.setVisible(true);
+    }//GEN-LAST:event_quitToMenuBtnActionPerformed
+    
+    public void displayMathQuestion() {
+        MathQuestions mathQuestions = new MathQuestions();
+        QuestionLabel.setText(mathQuestions.getQuestionText());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel QuestionLabel;
+    private javax.swing.JLabel QuestionNumberLbl;
     private javax.swing.JButton SignInButton;
     private javax.swing.JButton SignupButton;
+    private javax.swing.JTextField answerField;
     private javax.swing.JButton bToMenuBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton cAccountBtn;
@@ -437,10 +530,14 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JLabel loginLbl;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel logoLbl;
+    private javax.swing.JButton mathBtn;
+    private javax.swing.JPanel mathMode;
     private javax.swing.JLabel menuLbl;
     private javax.swing.JPanel menuPanel;
+    private javax.swing.JButton nextMathQuestionBtn;
     private javax.swing.JLabel passwordsLbl;
     private javax.swing.JButton playBtn;
+    private javax.swing.JButton quitToMenuBtn;
     private javax.swing.JPanel registerPanel;
     private javax.swing.JButton scienceBtn;
     private javax.swing.JButton startBtn;
