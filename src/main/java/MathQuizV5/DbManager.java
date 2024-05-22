@@ -31,6 +31,19 @@ public class DbManager {
             System.out.println("Error: " + e.getMessage());
         }
     }
+    
+    //updates the users score uso
+    public static void updateScore(String username, int score){
+        try {
+            Statement statement = conn.createStatement();
+            String updateQuery = "UPDATE UserInfo SET score = " + score + " WHERE username = '" + username + "'";
+            statement.executeUpdate(updateQuery);
+            statement.close();
+            System.out.println("Score has been updated");
+        } catch (SQLException e) {
+            System.out.println("There has been an error updating the score: " + e.getMessage());
+        }
+    }
 
     private static boolean checkTableExisting(String tableName) {
         boolean tableExists = false;
@@ -92,7 +105,7 @@ public class DbManager {
                 return false;
             }
     }
-
+    
     public static void closeDbConnection() {
         try {
             if (conn != null && !conn.isClosed()) {

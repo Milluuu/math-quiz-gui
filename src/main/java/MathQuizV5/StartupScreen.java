@@ -17,6 +17,20 @@ public class StartupScreen extends javax.swing.JFrame {
     /**
      * Creates new form StartupScreen
      */
+    
+    private Player player;
+    private int currentQuestionIndex = 1; //curent question index to 1
+    private final int totalNumberOfQuestions = 10; //this sets the total number of questions (delete this later to implement timer instead of a set of question)
+    private MathQuestions currentQuestion;
+    
+    
+    private void generateQuestions() {
+        currentQuestion = new MathQuestions(); //create new math questions object to generate new quesitons
+        QuestionLabel.setText(currentQuestion.getQuestionText()); 
+        QuestionNumberLbl.setText("Question " + currentQuestionIndex); //sets the text of label to the current question number
+        answerField.setText("");
+    }
+    
     public StartupScreen() {
         initComponents();
     }
@@ -379,6 +393,17 @@ public class StartupScreen extends javax.swing.JFrame {
         });
 
         nextMathQuestionBtn.setText("Next question");
+        nextMathQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextMathQuestionBtnActionPerformed(evt);
+            }
+        });
+
+        answerField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                answerFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mathModeLayout = new javax.swing.GroupLayout(mathMode);
         mathMode.setLayout(mathModeLayout);
@@ -432,6 +457,7 @@ public class StartupScreen extends javax.swing.JFrame {
         String password = new String(userPasswordField.getPassword());
         
         if(DbManager.checkUserInformation(username, password)) {
+            player = new Player(username, password, 0); //initialize player with 0 score
             loginPanel.setVisible(false);
             menuPanel.setVisible(true);
         } else {
@@ -493,13 +519,39 @@ public class StartupScreen extends javax.swing.JFrame {
     private void mathBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mathBtnActionPerformed
         gameModePanel.setVisible(false);
         mathMode.setVisible(true);
-        displayMathQuestion();
+        currentQuestionIndex = 1; //initstilized current question to 1
+        generateQuestions(); //generated first question
     }//GEN-LAST:event_mathBtnActionPerformed
 
     private void quitToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitToMenuBtnActionPerformed
         mathMode.setVisible(false);
         gameModePanel.setVisible(true);
     }//GEN-LAST:event_quitToMenuBtnActionPerformed
+
+    private void nextMathQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextMathQuestionBtnActionPerformed
+        String answerText = answerField.getText();
+        try {
+            double playerAnswer = Double.parseDouble(answerText);
+            if (Math.abs(playerAnswer - currentQuestion.getCorrectAnswer()) < 0.001) {
+                player.updateScore(10); // Update score by 10 points
+            }
+            
+            if (currentQuestionIndex < totalNumberOfQuestions) {
+                currentQuestionIndex++;
+                generateQuestions();
+            } else {
+                // End of quiz
+                JOptionPane.showMessageDialog(this, "Quiz complete! Your score: " + player.getScore());
+                
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid number");
+        }
+    }//GEN-LAST:event_nextMathQuestionBtnActionPerformed
+
+    private void answerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_answerFieldActionPerformed
     
     public void displayMathQuestion() {
         MathQuestions mathQuestions = new MathQuestions();

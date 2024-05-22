@@ -554,8 +554,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Next question"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextMathQuestionBtnActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="answerField">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="answerFieldActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
