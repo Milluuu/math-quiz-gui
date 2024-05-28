@@ -9,10 +9,10 @@ package MathQuizV5;
  *
  * @author Milu
  */
-public class MathQuestions extends Question {
+public class BasicQuestion extends Question {
     
     
-    public MathQuestions() 
+    public BasicQuestion() 
     {
         super("", 0);
         int num1 = generateNumber(100);
@@ -48,7 +48,7 @@ public class MathQuestions extends Question {
         this.questionText = num1 + operation + num2; // Set the question text
         this.correctAnswer = result; // Set the correct answer
     }
-
+    
     private int generateNumber(int range) {
         return (int) (Math.random() * range);
     }

@@ -4,8 +4,6 @@
  */
 package MathQuizV5;
 
-import java.util.Random;
-
 /**
  *
  * @author Milu
