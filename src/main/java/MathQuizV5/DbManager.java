@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -104,6 +106,27 @@ public class DbManager {
                 System.out.println("Error: " + e.getMessage());
                 return false;
             }
+    }
+    
+    //this returves the players username and score and displays it into the table
+    public static List<Player> getHighScore() {
+        List<Player> highScores = new ArrayList<>();
+        try{
+            Statement statement = conn.createStatement();
+            String query = "SELECT username, score FROM UserInfo ORDER BY score DESC";
+            ResultSet resultSet = statement.executeQuery(query);
+            
+            while(resultSet.next()) {
+                String username = resultSet.getString("username");
+                int score = resultSet.getInt("score");
+                highScores.add(new Player(username, "", score));
+            }
+            resultSet.close();
+            statement.close(); 
+        } catch (SQLException e) {
+            System.out.println("error getting high score:" + e.getMessage());
+        }
+        return highScores;
     }
     
     public static void closeDbConnection() {

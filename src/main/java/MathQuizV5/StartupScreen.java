@@ -4,6 +4,7 @@
  */
 package MathQuizV5;
 
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -37,10 +38,19 @@ public class StartupScreen extends javax.swing.JFrame {
         sQuestionLbl.setText(scienceQuestion.getQuestionText()); 
         sQuestionNumberLbl.setText("Question " + currentQuestionIndex); //sets the text of label to the current question number
         sAnswerField.setText("");
-    }    
+    } 
+    
+    //this method adds the data in the columns (username and score)
+    public void initializeHighScoresTable() {
+        List<Player> highScores = DbManager.getHighScore();
+        HighScore tableModel = new HighScore(highScores);
+        highScoreTable.setModel(tableModel);
+    }
+   
     
     public StartupScreen() {
         initComponents();
+        setTitle("Math Quiz V5"); //added the title
     }
     
     
@@ -97,6 +107,11 @@ public class StartupScreen extends javax.swing.JFrame {
         sQuitToMenuBtn = new javax.swing.JButton();
         sAnswerField = new javax.swing.JTextField();
         sNextMathQuestionBtn = new javax.swing.JButton();
+        highScorePanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        highScoreTable = new javax.swing.JTable();
+        highScoreLbl = new javax.swing.JLabel();
+        bkToMenuBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -471,7 +486,6 @@ public class StartupScreen extends javax.swing.JFrame {
         sQuestionNumberLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sQuestionNumberLbl.setText("Question 1");
 
-        sQuestionLbl.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         sQuestionLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sQuestionLbl.setText("(math question)");
 
@@ -522,7 +536,7 @@ public class StartupScreen extends javax.swing.JFrame {
         sQuestionPanelLayout.setVerticalGroup(
             sQuestionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sQuestionPanelLayout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
+                .addContainerGap(142, Short.MAX_VALUE)
                 .addComponent(sQuestionNumberLbl)
                 .addGap(44, 44, 44)
                 .addComponent(sQuestionLbl)
@@ -536,6 +550,68 @@ public class StartupScreen extends javax.swing.JFrame {
         );
 
         getContentPane().add(sQuestionPanel, "card8");
+
+        highScoreTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Username", "Highscore", "Time"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(highScoreTable);
+
+        highScoreLbl.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        highScoreLbl.setText("High Scores");
+
+        bkToMenuBtn.setText("Back to Menu");
+        bkToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bkToMenuBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout highScorePanelLayout = new javax.swing.GroupLayout(highScorePanel);
+        highScorePanel.setLayout(highScorePanelLayout);
+        highScorePanelLayout.setHorizontalGroup(
+            highScorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(highScorePanelLayout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addGroup(highScorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, highScorePanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 655, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(127, 127, 127))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, highScorePanelLayout.createSequentialGroup()
+                        .addComponent(highScoreLbl)
+                        .addGap(354, 354, 354))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, highScorePanelLayout.createSequentialGroup()
+                        .addComponent(bkToMenuBtn)
+                        .addGap(396, 396, 396))))
+        );
+        highScorePanelLayout.setVerticalGroup(
+            highScorePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, highScorePanelLayout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(highScoreLbl)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(bkToMenuBtn)
+                .addGap(77, 77, 77))
+        );
+
+        getContentPane().add(highScorePanel, "card9");
 
         pack();
         setLocationRelativeTo(null);
@@ -583,7 +659,9 @@ public class StartupScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_cAccountBtnActionPerformed
 
     private void highScoreBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreBtnActionPerformed
-        // TODO add your handling code here:
+        menuPanel.setVisible(false);
+        initializeHighScoresTable(); //calls a method to initialize and populate the high scores table kefeeee
+        highScorePanel.setVisible(true);
     }//GEN-LAST:event_highScoreBtnActionPerformed
 
     private void playBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playBtnActionPerformed
@@ -678,6 +756,11 @@ public class StartupScreen extends javax.swing.JFrame {
         currentQuestionIndex = 1; //initstilized current question to 1
         scienceQuestion(); //generated first question        
     }//GEN-LAST:event_startBtnActionPerformed
+
+    private void bkToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkToMenuBtnActionPerformed
+        highScorePanel.setVisible(false);
+        gameModePanel.setVisible(true);
+    }//GEN-LAST:event_bkToMenuBtnActionPerformed
     
     public void displayBasicQuestion() {
         BasicQuestion mathQuestions = new BasicQuestion();
@@ -701,6 +784,7 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JButton bQuitToMenuBtn;
     private javax.swing.JButton bToMenuBtn;
     private javax.swing.JButton backBtn;
+    private javax.swing.JButton bkToMenuBtn;
     private javax.swing.JButton cAccountBtn;
     private javax.swing.JPasswordField cPasswordField;
     private javax.swing.JLabel cPasswordLbl;
@@ -713,7 +797,11 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JLabel gameModeLbl;
     private javax.swing.JPanel gameModePanel;
     private javax.swing.JButton highScoreBtn;
+    private javax.swing.JLabel highScoreLbl;
+    private javax.swing.JPanel highScorePanel;
+    private javax.swing.JTable highScoreTable;
     private javax.swing.JScrollPane infoTextArea;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loginLbl;
     private javax.swing.JPanel loginPanel;
     private javax.swing.JLabel logoLbl;
