@@ -94,18 +94,24 @@ public class DbManager {
         }
     }
     
-    public static boolean checkUserInformation(String username, String password) {
-        try{
+    public static Player checkUserInformation(String username, String password) {
+        Player player = null;
+        try {
             Statement statement = conn.createStatement();
             String query = "SELECT * FROM UserInfo WHERE username = '" + username + "' AND password = '" + password + "'"; 
             ResultSet result = statement.executeQuery(query);
-            boolean userExists = result.next();
-            result.close();
-            return userExists;
-            } catch (SQLException e) {
-                System.out.println("Error: " + e.getMessage());
-                return false;
+            if (result.next()) {
+                String user = result.getString("username");
+                String pass = result.getString("password");
+                int score = result.getInt("score");
+                player = new Player(user, pass, score);
             }
+            result.close();
+            statement.close();
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return player;
     }
     
     //this returves the players username and score and displays it into the table
