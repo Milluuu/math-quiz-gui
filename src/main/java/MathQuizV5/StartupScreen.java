@@ -19,11 +19,17 @@ public class StartupScreen extends javax.swing.JFrame {
      * Creates new form StartupScreen
      */
     
+    public StartupScreen() {
+        initComponents();
+        setTitle("Math Quiz V5"); //added the title
+    }    
+    
     private Player player;
     private int currentQuestionIndex = 1; //curent question index to 1
-    private final int totalNumberOfQuestions = 10; //this sets the total number of questions (delete this later to implement timer instead of a set of question)
+    private final int totalNumberOfQuestions = 2; //set it to 100
     private BasicQuestion basicQuestion;
     private ScienceQuestion scienceQuestion;
+    private GameTimer timer;
     
     
     private void basicQuestions() {
@@ -48,13 +54,6 @@ public class StartupScreen extends javax.swing.JFrame {
     }
    
     
-    public StartupScreen() {
-        initComponents();
-        setTitle("Math Quiz V5"); //added the title
-    }
-    
-    
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -112,6 +111,12 @@ public class StartupScreen extends javax.swing.JFrame {
         highScoreTable = new javax.swing.JTable();
         highScoreLbl = new javax.swing.JLabel();
         bkToMenuBtn = new javax.swing.JButton();
+        endGamePanel = new javax.swing.JPanel();
+        endGameLbl = new javax.swing.JLabel();
+        endGameScoreLbl = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        bToMainMenuBtn = new javax.swing.JButton();
+        exitGameLbl = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.CardLayout());
@@ -173,7 +178,7 @@ public class StartupScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(logoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(loginLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -244,7 +249,7 @@ public class StartupScreen extends javax.swing.JFrame {
                 .addComponent(highScoreBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(exitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(114, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         getContentPane().add(menuPanel, "card3");
@@ -301,7 +306,7 @@ public class StartupScreen extends javax.swing.JFrame {
                     .addComponent(cPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(cAccountBtn)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
         );
 
         getContentPane().add(registerPanel, "card4");
@@ -350,7 +355,7 @@ public class StartupScreen extends javax.swing.JFrame {
         gameModePanelLayout.setVerticalGroup(
             gameModePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameModePanelLayout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
+                .addContainerGap(129, Short.MAX_VALUE)
                 .addComponent(gameModeLbl)
                 .addGap(51, 51, 51)
                 .addComponent(mathBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -401,7 +406,7 @@ public class StartupScreen extends javax.swing.JFrame {
         gameInfoPanelLayout.setVerticalGroup(
             gameInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gameInfoPanelLayout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addComponent(infoTextArea, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
                 .addGroup(gameInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -460,7 +465,7 @@ public class StartupScreen extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bQuestionPanelLayout.createSequentialGroup()
                         .addComponent(bQuestionNumberLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(364, 364, 364))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bQuestionPanelLayout.createSequentialGroup()
+                    .addGroup(bQuestionPanelLayout.createSequentialGroup()
                         .addComponent(bQuestionLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(339, 339, 339))))
         );
@@ -535,7 +540,7 @@ public class StartupScreen extends javax.swing.JFrame {
         sQuestionPanelLayout.setVerticalGroup(
             sQuestionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sQuestionPanelLayout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
+                .addContainerGap(123, Short.MAX_VALUE)
                 .addComponent(sQuestionNumberLbl)
                 .addGap(18, 18, 18)
                 .addComponent(sQuestionLbl)
@@ -611,6 +616,68 @@ public class StartupScreen extends javax.swing.JFrame {
         );
 
         getContentPane().add(highScorePanel, "card9");
+
+        endGameLbl.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        endGameLbl.setText("End of game");
+
+        endGameScoreLbl.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        endGameScoreLbl.setText("Score: ");
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("High Score: ");
+
+        bToMainMenuBtn.setText("Back to main menu ");
+        bToMainMenuBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bToMainMenuBtnActionPerformed(evt);
+            }
+        });
+
+        exitGameLbl.setText("Exit game");
+        exitGameLbl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitGameLblActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout endGamePanelLayout = new javax.swing.GroupLayout(endGamePanel);
+        endGamePanel.setLayout(endGamePanelLayout);
+        endGamePanelLayout.setHorizontalGroup(
+            endGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(endGamePanelLayout.createSequentialGroup()
+                .addGroup(endGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(endGamePanelLayout.createSequentialGroup()
+                        .addGap(348, 348, 348)
+                        .addComponent(endGameLbl))
+                    .addGroup(endGamePanelLayout.createSequentialGroup()
+                        .addGap(292, 292, 292)
+                        .addGroup(endGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(endGameScoreLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(endGamePanelLayout.createSequentialGroup()
+                        .addGap(231, 231, 231)
+                        .addComponent(bToMainMenuBtn)
+                        .addGap(210, 210, 210)
+                        .addComponent(exitGameLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(250, Short.MAX_VALUE))
+        );
+        endGamePanelLayout.setVerticalGroup(
+            endGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(endGamePanelLayout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(endGameLbl)
+                .addGap(47, 47, 47)
+                .addComponent(endGameScoreLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87)
+                .addGroup(endGamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(bToMainMenuBtn)
+                    .addComponent(exitGameLbl))
+                .addContainerGap(108, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(endGamePanel, "card10");
 
         pack();
         setLocationRelativeTo(null);
@@ -691,11 +758,24 @@ public class StartupScreen extends javax.swing.JFrame {
         player.setScore(0);
         DbManager.updateScore(player.getUsername(), 0);
         basicQuestions(); //generated first question
+        
+        timer = new GameTimer(() -> {
+        //JOptionPane.showMessageDialog(this, "Time's up! Your score: " + player.getScore());
+        bQuestionPanel.setVisible(false);
+        endGamePanel.setVisible(true);
+        endGameScoreLbl.setText("Score: " + player.getScore());
+        DbManager.updateScore(player.getUsername(), player.getScore());
+        });
+        timer.start();
     }//GEN-LAST:event_mathBtnActionPerformed
 
     private void bQuitToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bQuitToMenuBtnActionPerformed
         bQuestionPanel.setVisible(false);
         gameModePanel.setVisible(true);
+        
+        if(timer != null && timer.isRunning()){
+            timer.stop();
+        }
     }//GEN-LAST:event_bQuitToMenuBtnActionPerformed
 
     private void bNextMathQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextMathQuestionBtnActionPerformed
@@ -705,15 +785,20 @@ public class StartupScreen extends javax.swing.JFrame {
             if (Math.abs(playerAnswer - basicQuestion.getCorrectAnswer()) < 0.001) {
                 player.updateScore(10); // Update score by 10 points
             } else {
-                player.updateScore(-10); // Deduct 10 points for incorrect answer
+                player.updateScore(-5); // Deduct 5 points for incorrect answer
             }
 
             if (currentQuestionIndex < totalNumberOfQuestions) {
                 currentQuestionIndex++;
                 basicQuestions();
             } else {
-                JOptionPane.showMessageDialog(this, "Quiz complete! Your score: " + player.getScore());
+                endGameScoreLbl.setText("Score: " + player.getScore());
+                bQuestionPanel.setVisible(false);
+                endGamePanel.setVisible(true);
+                
+                
                 DbManager.updateScore(player.getUsername(), player.getScore());
+                timer.stop();
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Please enter a valid number");
@@ -767,6 +852,16 @@ public class StartupScreen extends javax.swing.JFrame {
         highScorePanel.setVisible(false);
         gameModePanel.setVisible(true);
     }//GEN-LAST:event_bkToMenuBtnActionPerformed
+
+    private void exitGameLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameLblActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitGameLblActionPerformed
+
+    private void bToMainMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bToMainMenuBtnActionPerformed
+        endGamePanel.setVisible(false);
+        menuPanel.setVisible(true);
+        
+    }//GEN-LAST:event_bToMainMenuBtnActionPerformed
     
     public void displayBasicQuestion() {
         BasicQuestion mathQuestions = new BasicQuestion();
@@ -788,6 +883,7 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JLabel bQuestionNumberLbl;
     private javax.swing.JPanel bQuestionPanel;
     private javax.swing.JButton bQuitToMenuBtn;
+    private javax.swing.JButton bToMainMenuBtn;
     private javax.swing.JButton bToMenuBtn;
     private javax.swing.JButton backBtn;
     private javax.swing.JButton bkToMenuBtn;
@@ -797,7 +893,11 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JTextField cUserField;
     private javax.swing.JLabel cUserNameLbl;
     private javax.swing.JLabel createAccLbl;
+    private javax.swing.JLabel endGameLbl;
+    private javax.swing.JPanel endGamePanel;
+    private javax.swing.JLabel endGameScoreLbl;
     private javax.swing.JButton exitBtn;
+    private javax.swing.JButton exitGameLbl;
     private javax.swing.JPanel gameInfoPanel;
     private javax.swing.JTextArea gameInfoTxtArea;
     private javax.swing.JLabel gameModeLbl;
@@ -807,6 +907,7 @@ public class StartupScreen extends javax.swing.JFrame {
     private javax.swing.JPanel highScorePanel;
     private javax.swing.JTable highScoreTable;
     private javax.swing.JScrollPane infoTextArea;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel loginLbl;
     private javax.swing.JPanel loginPanel;
