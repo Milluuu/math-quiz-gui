@@ -439,12 +439,6 @@ public class StartupScreen extends javax.swing.JFrame {
             }
         });
 
-        bAnswerField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bAnswerFieldActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout bQuestionPanelLayout = new javax.swing.GroupLayout(bQuestionPanel);
         bQuestionPanel.setLayout(bQuestionPanelLayout);
         bQuestionPanelLayout.setHorizontalGroup(
@@ -498,12 +492,6 @@ public class StartupScreen extends javax.swing.JFrame {
         sQuitToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sQuitToMenuBtnActionPerformed(evt);
-            }
-        });
-
-        sAnswerField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sAnswerFieldActionPerformed(evt);
             }
         });
 
@@ -755,16 +743,16 @@ public class StartupScreen extends javax.swing.JFrame {
         gameModePanel.setVisible(false);
         bQuestionPanel.setVisible(true);
         currentQuestionIndex = 1; //initstilized current question to 1
-        player.setScore(0);
-        DbManager.updateScore(player.getUsername(), 0);
+        player.setBasicScore(0);
+        DbManager.updateBasicScore(player.getUsername(), 0);
         basicQuestions(); //generated first question
         
         timer = new GameTimer(() -> {
         //JOptionPane.showMessageDialog(this, "Time's up! Your score: " + player.getScore());
         bQuestionPanel.setVisible(false);
         endGamePanel.setVisible(true);
-        endGameScoreLbl.setText("Score: " + player.getScore());
-        DbManager.updateScore(player.getUsername(), player.getScore());
+        endGameScoreLbl.setText("Score: " + player.getBasicScore());
+        DbManager.updateBasicScore(player.getUsername(), player.getBasicScore());
         });
         timer.start();
     }//GEN-LAST:event_mathBtnActionPerformed
@@ -783,21 +771,21 @@ public class StartupScreen extends javax.swing.JFrame {
         try {
             double playerAnswer = Double.parseDouble(answerText);
             if (Math.abs(playerAnswer - basicQuestion.getCorrectAnswer()) < 0.001) {
-                player.updateScore(10); // Update score by 10 points
+                player.updateBasicScore(10); // Update score by 10 points
             } else {
-                player.updateScore(-5); // Deduct 5 points for incorrect answer
+                player.updateBasicScore(-5); // Deduct 5 points for incorrect answer
             }
 
             if (currentQuestionIndex < totalNumberOfQuestions) {
                 currentQuestionIndex++;
                 basicQuestions();
             } else {
-                endGameScoreLbl.setText("Score: " + player.getScore());
+                endGameScoreLbl.setText("Score: " + player.getBasicScore());
                 bQuestionPanel.setVisible(false);
                 endGamePanel.setVisible(true);
                 
                 
-                DbManager.updateScore(player.getUsername(), player.getScore());
+                DbManager.updateBasicScore(player.getUsername(), player.getBasicScore());
                 timer.stop();
             }
         } catch (NumberFormatException e) {
@@ -805,25 +793,19 @@ public class StartupScreen extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bNextMathQuestionBtnActionPerformed
 
-    private void bAnswerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAnswerFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bAnswerFieldActionPerformed
-
     private void sQuitToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sQuitToMenuBtnActionPerformed
         sQuestionPanel.setVisible(false);
         gameModePanel.setVisible(true);
     }//GEN-LAST:event_sQuitToMenuBtnActionPerformed
-
-    private void sAnswerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sAnswerFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sAnswerFieldActionPerformed
 
     private void sNextMathQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNextMathQuestionBtnActionPerformed
         String answerText = sAnswerField.getText();
         try {
             double playerAnswer = Double.parseDouble(answerText);
             if (Math.abs(playerAnswer - scienceQuestion.getCorrectAnswer()) < 0.001) {
-                player.updateScore(10); // Update score by 10 points
+                player.updateScienceScore(10); // Update score by 10 points
+            } else {
+                player.updateScienceScore(-5);
             }
             
             if (currentQuestionIndex < totalNumberOfQuestions) {
@@ -831,8 +813,11 @@ public class StartupScreen extends javax.swing.JFrame {
                 scienceQuestion();
             } else {
                 // End of quiz
-                JOptionPane.showMessageDialog(this, "Quiz complete! Your score: " + player.getScore());
-                
+                JOptionPane.showMessageDialog(this, "Quiz complete! Your score: " + player.getScienceScore());
+                endGameScoreLbl.setText("Score: " + player.getScienceScore());
+                bQuestionPanel.setVisible(false);
+                endGamePanel.setVisible(true);
+                                
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Please enter a valid number");
@@ -843,8 +828,8 @@ public class StartupScreen extends javax.swing.JFrame {
         gameInfoPanel.setVisible(false);
         sQuestionPanel.setVisible(true);
         currentQuestionIndex = 1; //initstilized current question to 1
-        player.setScore(0);
-        DbManager.updateScore(player.getUsername(), 0);
+        player.setScienceScore(0);
+        DbManager.updateScienceScore(player.getUsername(), 0);
         scienceQuestion(); //generated first question        
     }//GEN-LAST:event_startBtnActionPerformed
 

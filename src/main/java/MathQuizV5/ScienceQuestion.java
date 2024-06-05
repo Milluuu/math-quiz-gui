@@ -11,12 +11,27 @@ package MathQuizV5;
 public class ScienceQuestion extends Question{ 
     public ScienceQuestion() { 
         super("", 0); 
-        generateSpeedQuestion();
+        randomiseQuestion();
     } 
+    
+    private void randomiseQuestion(){
+        switch(generateNumber(2)){
+            case 0:
+                generateSpeedQuestion();
+                break;
+            case 1:
+                generateNmolesQuestion();
+                break;
+            default:
+                System.out.println("Invalid operation!");
+                break;
+        }
+    }
 
-    private synchronized void generateSpeedQuestion(){ //Remove synchronized if needed
-        int distance = generateNumber(60); 
-        int time = generateNumber(5); 
+    private void generateSpeedQuestion(){ //Remove synchronized if needed
+        //s = d / deltaTime
+        int distance = generateNumber(60) + 1; 
+        int time = generateNumber(5) + 1; 
         double speed = distance / time;  
 
         this.questionText = "<html>Assume you are monitoring your running performance while preparing for a<br>" 
@@ -25,6 +40,16 @@ public class ScienceQuestion extends Question{
                 + "eters on foot.</html>"; 
         this.correctAnswer = speed; 
     } 
+    
+    private void generateNmolesQuestion(){
+        //n = c * v
+        double concentration = generateNumber(1) / 10.0;
+        int volume = generateNumber(10) + 1;
+        double nMoles = concentration * volume;
+        
+        this.questionText = "Calculate the number of moles of solute present in " + volume + " mL of a " + concentration + " M NaCl solution.";
+        this.correctAnswer = nMoles;
+    }
     
     private int generateNumber(int range) { 
         return (int) (Math.random() * range); 
