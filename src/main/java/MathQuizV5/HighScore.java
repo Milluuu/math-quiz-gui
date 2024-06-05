@@ -17,7 +17,7 @@ public class HighScore extends DefaultTableModel {
     public HighScore(List<Player> players) {
         super(COLUMN_NAMES, 0);
         for (Player player : players) {
-            addRow(new Object[]{player.getUsername(), player.getScore()});
+            addRow(new Object[]{player.getUsername(), player.getBasicScore()});
         }
     }
 

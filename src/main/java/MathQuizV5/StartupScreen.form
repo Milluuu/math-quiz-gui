@@ -561,9 +561,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="bAnswerField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bAnswerFieldActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -647,9 +644,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="sAnswerField">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sAnswerFieldActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="sNextMathQuestionBtn">
           <Properties>

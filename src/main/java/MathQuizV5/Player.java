@@ -11,25 +11,39 @@ package MathQuizV5;
 public class Player {
     private String username;
     private String password;
-    private int score;
+    private int basicScore;
+    private int scienceScore;
     
     public Player(String username, String password, int score) {
         this.username = username;
         this.password = password;
-        this.score = score;
+        this.basicScore = score;
     }
     
-    public void setScore(int score) {
-        this.score = score;
+    public void setBasicScore(int basicScore) {
+        this.basicScore = basicScore;
     }
     
-    public int getScore() {
-        return score;
+    public int getBasicScore() {
+        return basicScore;
     }
     
-    public void updateScore(int addPoints) {
-        this.score += addPoints;
-        DbManager.updateScore(this.username, this.score);
+    public void setScienceScore(int scienceScore){
+        this.scienceScore = scienceScore;
+    }
+    
+    public int getScienceScore(){
+        return scienceScore;
+    }
+    
+    public void updateBasicScore(int addPoints) {
+        this.basicScore += addPoints;
+        DbManager.updateBasicScore(this.username, this.basicScore);
+    }
+    
+    public void updateScienceScore(int addPoints){
+        this.scienceScore += addPoints;
+        DbManager.updateScienceScore(this.username, this.scienceScore);
     }
     
     public void setUsername(String username) {
