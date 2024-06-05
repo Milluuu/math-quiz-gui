@@ -748,7 +748,6 @@ public class StartupScreen extends javax.swing.JFrame {
         basicQuestions(); //generated first question
         
         timer = new GameTimer(() -> {
-        //JOptionPane.showMessageDialog(this, "Time's up! Your score: " + player.getScore());
         bQuestionPanel.setVisible(false);
         endGamePanel.setVisible(true);
         endGameScoreLbl.setText("Score: " + player.getBasicScore());
@@ -780,11 +779,9 @@ public class StartupScreen extends javax.swing.JFrame {
                 currentQuestionIndex++;
                 basicQuestions();
             } else {
-                endGameScoreLbl.setText("Score: " + player.getBasicScore());
                 bQuestionPanel.setVisible(false);
                 endGamePanel.setVisible(true);
-                
-                
+                endGameScoreLbl.setText("Score: " + player.getBasicScore());                
                 DbManager.updateBasicScore(player.getUsername(), player.getBasicScore());
                 timer.stop();
             }
@@ -796,6 +793,10 @@ public class StartupScreen extends javax.swing.JFrame {
     private void sQuitToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sQuitToMenuBtnActionPerformed
         sQuestionPanel.setVisible(false);
         gameModePanel.setVisible(true);
+        
+        if(timer != null && timer.isRunning()){
+            timer.stop();
+        }        
     }//GEN-LAST:event_sQuitToMenuBtnActionPerformed
 
     private void sNextMathQuestionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNextMathQuestionBtnActionPerformed
@@ -813,10 +814,11 @@ public class StartupScreen extends javax.swing.JFrame {
                 scienceQuestion();
             } else {
                 // End of quiz
-                JOptionPane.showMessageDialog(this, "Quiz complete! Your score: " + player.getScienceScore());
-                endGameScoreLbl.setText("Score: " + player.getScienceScore());
-                bQuestionPanel.setVisible(false);
+                sQuestionPanel.setVisible(false);
                 endGamePanel.setVisible(true);
+                endGameScoreLbl.setText("Score: " + player.getScienceScore());
+                DbManager.updateScienceScore(player.getUsername(), player.getScienceScore());
+                timer.stop();
                                 
             }
         } catch (NumberFormatException e) {
@@ -830,7 +832,15 @@ public class StartupScreen extends javax.swing.JFrame {
         currentQuestionIndex = 1; //initstilized current question to 1
         player.setScienceScore(0);
         DbManager.updateScienceScore(player.getUsername(), 0);
-        scienceQuestion(); //generated first question        
+        scienceQuestion(); //generated first question      
+        
+        timer = new GameTimer(() -> {
+        sQuestionPanel.setVisible(false);
+        endGamePanel.setVisible(true);
+        endGameScoreLbl.setText("Score: " + player.getScienceScore());
+        DbManager.updateScienceScore(player.getUsername(), player.getScienceScore());
+        });
+        timer.start();        
     }//GEN-LAST:event_startBtnActionPerformed
 
     private void bkToMenuBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bkToMenuBtnActionPerformed
