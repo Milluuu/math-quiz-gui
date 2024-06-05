@@ -33,10 +33,12 @@ public class GameTimer {
 
     public void start() {
         timer.start();
+        System.out.println("Time started at " + remainingTime);
     }
 
     public void stop() {
         timer.stop();
+        System.out.println("Time stopped at " + remainingTime);
     }
 
     public int getRemainingTime() {
