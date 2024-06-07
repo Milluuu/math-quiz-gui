@@ -38,12 +38,11 @@ public class Player {
     
     public void updateBasicScore(int addPoints) {
         this.basicScore += addPoints;
-        DbManager.updateBasicScore(this.username, this.basicScore);
-    }
+        DbManager.addGameSession(this.username, "Math", this.basicScore);    }
     
     public void updateScienceScore(int addPoints){
         this.scienceScore += addPoints;
-        DbManager.updateScienceScore(this.username, this.scienceScore);
+        DbManager.addGameSession(this.username, "Science", this.scienceScore);
     }
     
     public void setUsername(String username) {

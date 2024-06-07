@@ -57,7 +57,33 @@ public class DbManager {
         } catch (SQLException e) {
             System.out.println("There has been an error updating the score: " + e.getMessage());
         }
-    }    
+    }   
+    
+    public static void addGameSession(String username, String gameType, int score) {
+        try {
+            Statement statement = conn.createStatement();
+
+            // Check if the user already has a session for the given game type
+            String checkQuery = "SELECT * FROM GameSessions WHERE username = '" + username + "' AND gameType = '" + gameType + "'";
+            ResultSet resultSet = statement.executeQuery(checkQuery);
+
+            if (resultSet.next()) {
+                // Update the existing session
+                String updateQuery = "UPDATE GameSessions SET score = " + score + " WHERE username = '" + username + "' AND gameType = '" + gameType + "'";
+                statement.executeUpdate(updateQuery);
+            } else {
+                // Insert a new session
+                String insertQuery = "INSERT INTO GameSessions (username, gameType, score) VALUES ('" + username + "', '" + gameType + "', " + score + ")";
+                statement.executeUpdate(insertQuery);
+            }
+
+            resultSet.close();
+            statement.close();
+        } catch (SQLException e) {
+            System.out.println("Error adding game session: " + e.getMessage());
+        }
+    }
+
 
     private static boolean checkTableExisting(String tableName) {
         boolean tableExists = false;
@@ -126,28 +152,38 @@ public class DbManager {
         return player;
     }
     
-    //this returves the players username and score and displays it into the table
-    public static List<Player> getHighScore() {
+    //this returves the players username and score and displays it into the table depending on what mode
+    public static List<Player> getHighScore(String mode) {
         List<Player> highScores = new ArrayList<>();
-        try{
+        String query;
+
+        if ("Math".equalsIgnoreCase(mode)) {
+            query = "SELECT username, MAX(score) AS score FROM GameSessions WHERE gameType = 'Math' GROUP BY username ORDER BY score DESC";
+        } else if ("Science".equalsIgnoreCase(mode)) {
+            query = "SELECT username, MAX(score) AS score FROM GameSessions WHERE gameType = 'Science' GROUP BY username ORDER BY score DESC";
+        } else {
+            throw new IllegalArgumentException("Invalid mode: " + mode);
+        }
+
+        try {
             Statement statement = conn.createStatement();
-            String query = "SELECT username, score FROM UserInfo ORDER BY score DESC";
             ResultSet resultSet = statement.executeQuery(query);
-            
-            while(resultSet.next()) {
+
+            while (resultSet.next()) {
                 String username = resultSet.getString("username");
                 int score = resultSet.getInt("score");
                 highScores.add(new Player(username, "", score));
             }
             resultSet.close();
-            statement.close(); 
+            statement.close();
         } catch (SQLException e) {
-            System.out.println("error getting high score:" + e.getMessage());
+            System.out.println("Error getting high score: " + e.getMessage());
         }
         return highScores;
     }
+
     
-    
+ 
     public static void closeDbConnection() {
         try {
             if (conn != null && !conn.isClosed()) {
