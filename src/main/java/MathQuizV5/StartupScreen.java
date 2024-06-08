@@ -4,6 +4,7 @@
  */
 package MathQuizV5;
 
+import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.swing.Timer;
  *
  * @author Milu
  */
-public class StartupScreen extends javax.swing.JFrame {
+public class StartupScreen extends JFrame {
 
     /**
      * Creates new form StartupScreen
@@ -25,6 +26,7 @@ public class StartupScreen extends javax.swing.JFrame {
     public StartupScreen() {
         initComponents();
         setTitle("Math Quiz V5"); //added the title
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
     }    
     
     private Player player;
