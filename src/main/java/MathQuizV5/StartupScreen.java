@@ -748,7 +748,7 @@ public class StartupScreen extends JFrame {
         });
 
         bInfoLbl.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        bInfoLbl.setText("<html>In this game mode, you will be given randomized science related<br>  math questions. You are given a limit of 5 minutes to answer as <br> many questions within the time frame. </html>");
+        bInfoLbl.setText("<html>In this game mode, you will be given basic math questions. <br>You are given a limit of 5 minutes to answer as <br> many questions within the time frame. </html>");
 
         javax.swing.GroupLayout bGameInfoPanelLayout = new javax.swing.GroupLayout(bGameInfoPanel);
         bGameInfoPanel.setLayout(bGameInfoPanelLayout);
@@ -761,7 +761,7 @@ public class StartupScreen extends JFrame {
                 .addComponent(bStartBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(179, 179, 179))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bGameInfoPanelLayout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+                .addContainerGap(215, Short.MAX_VALUE)
                 .addComponent(bInfoLbl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
         );
