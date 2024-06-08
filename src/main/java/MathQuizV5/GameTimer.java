@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 public class GameTimer {
     private Timer timer;
     private int remainingTime; 
-    private final int DURATION = 10; // 10 seconds
+    private final int DURATION = 60; // 10 seconds
 
     public GameTimer(Runnable onTimeUp) {
         this.remainingTime = DURATION;

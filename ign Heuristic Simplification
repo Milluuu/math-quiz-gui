@@ -1,0 +1,170 @@
+[33mcommit 07e32bb07ca2adbd8a7f4168981281d43d1591bc[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdev[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Sat Jun 8 14:32:03 2024 +1200
+
+    Fixed issue with high score tables
+
+[33mcommit 636d759b486224b2df26ca7e9d9dcd7a64df8d7c[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Fri Jun 7 18:46:36 2024 +1200
+
+    added two high score table for math mode and science mode
+
+[33mcommit 6efa81842cda0f6cbc09833e68b4de5567c270da[m
+Merge: b55b3fe 0954246
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed Jun 5 16:04:54 2024 +1200
+
+    Added timer to science question
+
+[33mcommit 095424645c944fdc9c429b19ee8329fdb3ab18f6[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed Jun 5 16:04:00 2024 +1200
+
+    Added timer to science question
+
+[33mcommit b55b3feaf7e9ce8b8fbc72cba6fe6b5e61fd654a[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed Jun 5 15:47:59 2024 +1200
+
+    Error fix
+
+[33mcommit 3b5a88987e0a79e79152f4f687f4a710450aaff1[m
+Merge: 901f8f3 3bf4c17
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed Jun 5 15:30:09 2024 +1200
+
+    Updated DBmanager class
+
+[33mcommit 3bf4c173b017ca4e625740a545123b4cc1e5b944[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed Jun 5 15:29:02 2024 +1200
+
+    Updated DBMS to include basic score and science score
+
+[33mcommit 901f8f342592e7d1f8766f90af6039a2b93cb5d5[m
+Merge: 7b36dea d76608a
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Tue Jun 4 19:49:35 2024 +1200
+
+    Added timer and end game panel
+
+[33mcommit d76608aed77482306e7141f515ba12a1e2b9b88d[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Tue Jun 4 19:47:51 2024 +1200
+
+    Added timer
+
+[33mcommit 747216ca538a200b3f8b7084d73e7988ada5f258[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Tue Jun 4 19:20:17 2024 +1200
+
+    Added a game timer and a end game panel
+
+[33mcommit 7b36dea32bdfa829fffde2c9b44ac4e37723799d[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Tue Jun 4 19:18:51 2024 +1200
+
+    This is a test
+
+[33mcommit f07f640234cdd03f8ac4ae72d4e65cf4fd42d0d6[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Tue Jun 4 19:15:45 2024 +1200
+
+    Added timer and end of game panel
+
+[33mcommit 4ca40ff59024d759ea07edfe2ccaed90c72f3303[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Fri May 31 15:09:30 2024 +1200
+
+    Added aditional functionality to high scores
+
+[33mcommit e1d824aebfc903a55b0903849e60baab1a0cb749[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Thu May 30 18:59:19 2024 +1200
+
+    added the high score functionality
+
+[33mcommit 54d085bcea7a2d7ef14b66888d2c1127ac030e3d[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Thu May 30 18:56:57 2024 +1200
+
+    added highscore functionality
+
+[33mcommit f7890b9babcb3fdd9179744ae45457fd81341e2d[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed May 29 11:42:12 2024 +1200
+
+    Added science gamemode
+
+[33mcommit cae12f912e49bedeb1b5199f488ef05f75ecba07[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Wed May 29 11:40:03 2024 +1200
+
+    Added science game mode, changed file name to basic question
+
+[33mcommit eb95094dab9f30ad1660b6daa79c86563bad7575[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Wed May 22 16:56:35 2024 +1200
+
+    Made changes so math gamemode works and funtionality is all working and fixed DB manager class to work with the math mode
+
+[33mcommit d14aab358b00198f05d0efd3d27dd13bc6595253[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Tue May 21 22:08:42 2024 +1200
+
+    Added 2 new classes and JPanel that generates and displays math questions. Also fixed up some uncentered layout
+
+[33mcommit a3bfe69aa9f5bb10b67829fa6bdd356c09b3926e[m
+Author: Adrian Chand <adidasiscool12345@gmail.com>
+Date:   Sat May 18 14:47:42 2024 +1200
+
+    Added game mode panel, game info panel
+
+[33mcommit 36d91a88e7355faf1c70563fefcea81af9c65ccb[m
+Author: VibrainiumMan <168701131+VibrainiumMan@users.noreply.github.com>
+Date:   Thu May 16 15:15:02 2024 +1200
+
+    Yeet
+
+[33mcommit 6ca45eca3ea0cf0824a5515be5c8ea19bfc8570f[m
+Author: VibrainiumMan <168701131+VibrainiumMan@users.noreply.github.com>
+Date:   Wed May 15 19:42:53 2024 +1200
+
+    there is like 3 java files now in the src folder
+
+[33mcommit 3e77c5337c83d5f40193692680ee8e5507e00309[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Tue May 14 19:27:07 2024 +1200
+
+    Fixed various UI elements and added JDBC connection as well as the new Menu JFrame
+
+[33mcommit d875165a6cd71280ba10436ab8151e0d091723a5[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Tue May 14 15:14:24 2024 +1200
+
+    Made various changes
+
+[33mcommit f134e62a835629d56836a0dfcd7f5a23521b3398[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Tue May 14 13:42:31 2024 +1200
+
+    Added register screen and modified Startupscreen
+
+[33mcommit 5f72f67dfeabe943e8d74bcd729442239d30dd86[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Mon May 13 21:32:14 2024 +1200
+
+    fixed ui for starting screen
+
+[33mcommit 1132831bbcfdf056cb49a18393cb224f5ffc18cb[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Fri May 10 17:34:13 2024 +1200
+
+    Added StartupScreen and modified main
+
+[33mcommit 9ba488b33f3b26fcd0265e8cb3b539b67a072b7a[m
+Author: Milluuu <shma.leshh@gmail.com>
+Date:   Fri May 10 17:12:32 2024 +1200
+
+    Initialized repo
