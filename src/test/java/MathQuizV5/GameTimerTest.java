@@ -19,26 +19,30 @@ public class GameTimerTest {
     public GameTimerTest() {
     }
 
+    // Setup class-level resources before any tests run
     @BeforeClass
     public static void setUpClass() {
     }
 
+    // Clean up class-level resources after all tests run
     @AfterClass
     public static void tearDownClass() {
     }
 
+    // Setup method, runs before each test
     @Before
     public void setUp() {
         timerExpired = false;
         instance = new GameTimer(10, () -> timerExpired = true);
     }
 
+    // Tear down method, runs after each test
     @After
     public void tearDown() {
         instance.stop();
     }
 
-
+    // Test the start method
     @Test
     public void testStart() {
         System.out.println("start");
@@ -46,7 +50,7 @@ public class GameTimerTest {
         assertTrue(instance.isRunning());
     }
 
-
+    // Test the stop method
     @Test
     public void testStop() {
         System.out.println("stop");
@@ -55,7 +59,7 @@ public class GameTimerTest {
         assertFalse(instance.isRunning());
     }
 
-
+    // Test the getRemainingTime method
     @Test
     public void testGetRemainingTime() throws InterruptedException {
         System.out.println("getRemainingTime");
@@ -66,7 +70,7 @@ public class GameTimerTest {
         assertTrue(result <= 9 && result >= 5);
     }
 
-
+    // Test the isRunning method
     @Test
     public void testIsRunning() {
         System.out.println("isRunning");
@@ -76,7 +80,7 @@ public class GameTimerTest {
         assertFalse(instance.isRunning());
     }
 
-
+    // Test if the timer expires correctly
     @Test
     public void testTimerExpires() throws InterruptedException {
         System.out.println("testTimerExpires");

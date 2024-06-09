@@ -15,11 +15,12 @@ import static org.junit.Assert.*;
  * @author adida
  */
 public class HighScoreTest {
-    
+
     private Player player1;
     private Player player2;
     private HighScore highScore;
 
+    // Setup method, runs before each test
     @Before
     public void setUp() {
         player1 = new Player("Alice", "password1", 150);
@@ -28,17 +29,20 @@ public class HighScoreTest {
         highScore = new HighScore(players);
     }
 
+    // Test the column names
     @Test
     public void testColumnNames() {
         assertEquals("Username", highScore.getColumnName(0));
         assertEquals("Score", highScore.getColumnName(1));
     }
 
+    // Test the row count
     @Test
     public void testRowCount() {
         assertEquals(2, highScore.getRowCount());
     }
 
+    // Test the values in the cells
     @Test
     public void testCellValues() {
         assertEquals("Alice", highScore.getValueAt(0, 0));
@@ -47,6 +51,7 @@ public class HighScoreTest {
         assertEquals(200, highScore.getValueAt(1, 1));
     }
 
+    // Test if the cells are editable
     @Test
     public void testIsCellEditable() {
         assertFalse(highScore.isCellEditable(0, 0));
