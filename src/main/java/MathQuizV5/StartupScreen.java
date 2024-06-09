@@ -723,7 +723,7 @@ public class StartupScreen extends JFrame {
     }//GEN-LAST:event_exitBtnActionPerformed
 
     
-    //Create account screen
+    //Create account action button
     private void cAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cAccountBtnActionPerformed
         String username = cUserField.getText();
         String password = new String(cPasswordField.getPassword());
@@ -878,13 +878,13 @@ public class StartupScreen extends JFrame {
         DbManager.updateScienceScore(player.getUsername(), 0);
         scienceQuestion(); //generated first question      
         
-        timer = new GameTimer(() -> {
-        sQuestionPanel.setVisible(false);
-        endGamePanel.setVisible(true);
-        endGameScoreLbl.setText("Score: " + player.getScienceScore());
-        DbManager.updateScienceScore(player.getUsername(), player.getScienceScore());
+        timer = new GameTimer(300, () -> {  // 5 minutes in seconds
+            sQuestionPanel.setVisible(false);
+            endGamePanel.setVisible(true);
+            endGameScoreLbl.setText("Score: " + player.getScienceScore());
+            DbManager.updateScienceScore(player.getUsername(), player.getScienceScore());
         });
-        timer.start();        
+        timer.start();      
     }//GEN-LAST:event_sStartBtnActionPerformed
 
     private void exitGameLblActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameLblActionPerformed
@@ -926,11 +926,11 @@ public class StartupScreen extends JFrame {
         DbManager.updateBasicScore(player.getUsername(), 0);
         basicQuestions(); //generated first question
         
-        timer = new GameTimer(() -> {
-        bQuestionPanel.setVisible(false);
-        endGamePanel.setVisible(true);
-        endGameScoreLbl.setText("Score: " + player.getBasicScore());
-        DbManager.updateBasicScore(player.getUsername(), player.getBasicScore());
+        timer = new GameTimer(300, () -> {  // 5 minutes in seconds
+            bQuestionPanel.setVisible(false);
+            endGamePanel.setVisible(true);
+            endGameScoreLbl.setText("Score: " + player.getBasicScore());
+            DbManager.updateBasicScore(player.getUsername(), player.getBasicScore());
         });
         timer.start();
     }//GEN-LAST:event_bStartBtnActionPerformed

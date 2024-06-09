@@ -14,11 +14,12 @@ import java.awt.event.ActionListener;
 
 public class GameTimer {
     private Timer timer;
-    private int remainingTime; 
-    private final int DURATION = 5 * 60; // 5 minutes in seconds
+    private int remainingTime;
+    private final Runnable onTimeUp;
 
-    public GameTimer(Runnable onTimeUp) {
-        this.remainingTime = DURATION;
+    public GameTimer(int durationInSeconds, Runnable onTimeUp) {
+        this.remainingTime = durationInSeconds;
+        this.onTimeUp = onTimeUp;
         this.timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -32,13 +33,17 @@ public class GameTimer {
     }
 
     public void start() {
-        timer.start();
-        System.out.println("Time started at " + remainingTime);
+        if (!timer.isRunning()) {
+            timer.start();
+            System.out.println("Timer started with " + remainingTime + " seconds remaining.");
+        }
     }
 
     public void stop() {
-        timer.stop();
-        System.out.println("Time stopped at " + remainingTime);
+        if (timer.isRunning()) {
+            timer.stop();
+            System.out.println("Timer stopped with " + remainingTime + " seconds remaining.");
+        }
     }
 
     public int getRemainingTime() {
@@ -47,5 +52,11 @@ public class GameTimer {
 
     public boolean isRunning() {
         return timer.isRunning();
+    }
+
+    // Reset the timer to a specific duration
+    public void reset(int durationInSeconds) {
+        stop();
+        this.remainingTime = durationInSeconds;
     }
 }
