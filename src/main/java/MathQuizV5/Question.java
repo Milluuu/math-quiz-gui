@@ -38,9 +38,5 @@ public class Question {
     public void setCorrectAnswer(double correctAnswer) 
     {
         this.correctAnswer = correctAnswer;
-    }
-    
-    
-    
-            
+    }        
 }

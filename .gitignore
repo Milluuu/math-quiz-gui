@@ -1,2 +1,4 @@
 /target/
 /nbproject/
+MathQuizDB/db.lck
+derby.log
