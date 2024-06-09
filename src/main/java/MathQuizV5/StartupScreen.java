@@ -482,7 +482,7 @@ public class StartupScreen extends JFrame {
             }
         });
         bQuestionPanel.add(bQuitToMenuBtn);
-        bQuitToMenuBtn.setBounds(229, 353, 117, 22);
+        bQuitToMenuBtn.setBounds(229, 353, 117, 25);
 
         bNextMathQuestionBtn.setText("Next question");
         bNextMathQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -491,7 +491,7 @@ public class StartupScreen extends JFrame {
             }
         });
         bQuestionPanel.add(bNextMathQuestionBtn);
-        bNextMathQuestionBtn.setBounds(595, 353, 117, 22);
+        bNextMathQuestionBtn.setBounds(595, 353, 117, 25);
         bQuestionPanel.add(bAnswerField);
         bAnswerField.setBounds(400, 280, 143, 49);
 
@@ -525,7 +525,7 @@ public class StartupScreen extends JFrame {
             }
         });
         sQuestionPanel.add(sQuitToMenuBtn);
-        sQuitToMenuBtn.setBounds(240, 380, 117, 22);
+        sQuitToMenuBtn.setBounds(240, 380, 117, 25);
         sQuestionPanel.add(sAnswerField);
         sAnswerField.setBounds(420, 300, 128, 46);
 
@@ -536,12 +536,13 @@ public class StartupScreen extends JFrame {
             }
         });
         sQuestionPanel.add(sNextMathQuestionBtn);
-        sNextMathQuestionBtn.setBounds(600, 380, 117, 22);
+        sNextMathQuestionBtn.setBounds(600, 380, 117, 25);
 
         sAnswerCheckLbl.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         sAnswerCheckLbl.setText("(check corrent)");
         sQuestionPanel.add(sAnswerCheckLbl);
         sAnswerCheckLbl.setBounds(600, 320, 96, 19);
+        sAnswerCheckLbl.setVisible(false);
 
         getContentPane().add(sQuestionPanel, "card8");
 
@@ -565,7 +566,7 @@ public class StartupScreen extends JFrame {
             }
         });
         endGamePanel.add(bToMainMenuBtn);
-        bToMainMenuBtn.setBounds(218, 321, 136, 22);
+        bToMainMenuBtn.setBounds(218, 321, 127, 25);
 
         exitGameLbl.setText("Exit game");
         exitGameLbl.addActionListener(new java.awt.event.ActionListener() {
@@ -574,7 +575,7 @@ public class StartupScreen extends JFrame {
             }
         });
         endGamePanel.add(exitGameLbl);
-        exitGameLbl.setBounds(620, 320, 130, 22);
+        exitGameLbl.setBounds(620, 320, 130, 25);
 
         getContentPane().add(endGamePanel, "card10");
 
@@ -593,7 +594,7 @@ public class StartupScreen extends JFrame {
             }
         });
         highScoreViewer.add(viewMathScoresBtn);
-        viewMathScoresBtn.setBounds(570, 100, 122, 22);
+        viewMathScoresBtn.setBounds(570, 100, 122, 25);
 
         viewScienceScoresBtn.setText("Science");
         viewScienceScoresBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -602,7 +603,7 @@ public class StartupScreen extends JFrame {
             }
         });
         highScoreViewer.add(viewScienceScoresBtn);
-        viewScienceScoresBtn.setBounds(238, 103, 122, 22);
+        viewScienceScoresBtn.setBounds(238, 103, 122, 25);
 
         highScoreTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -627,11 +628,11 @@ public class StartupScreen extends JFrame {
         }
 
         highScoreViewer.add(jScrollPane2);
-        jScrollPane2.setBounds(238, 182, 452, 197);
+        jScrollPane2.setBounds(238, 182, 453, 197);
 
         currentLeaderboardLbl.setText("jLabel1");
         highScoreViewer.add(currentLeaderboardLbl);
-        currentLeaderboardLbl.setBounds(360, 160, 210, 16);
+        currentLeaderboardLbl.setBounds(360, 160, 210, 15);
 
         highScoreBkToMenu.setText("Back to menu");
         highScoreBkToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -640,7 +641,7 @@ public class StartupScreen extends JFrame {
             }
         });
         highScoreViewer.add(highScoreBkToMenu);
-        highScoreBkToMenu.setBounds(419, 412, 103, 22);
+        highScoreBkToMenu.setBounds(419, 412, 99, 25);
 
         getContentPane().add(highScoreViewer, "card11");
 
@@ -792,6 +793,7 @@ public class StartupScreen extends JFrame {
                 player.updateBasicScore(10); // Update score by 10 points for correct answer
                 bAnswerCheckLbl.setText("Correct");
             } else {
+                player.updateBasicScore(-5);
                 bAnswerCheckLbl.setText("Incorrect");
             }
 
@@ -835,6 +837,7 @@ public class StartupScreen extends JFrame {
                 player.updateScienceScore(10); // Update score by 10 points for correct answer
                 sAnswerCheckLbl.setText("Correct");
             } else {
+                player.updateScienceScore(-5);
                 sAnswerCheckLbl.setText("Incorrect");
             }
 
