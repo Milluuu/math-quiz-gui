@@ -4,6 +4,9 @@
 
 package MathQuizV5;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 /**
  *
@@ -12,7 +15,13 @@ package MathQuizV5;
 public class MathQuizProject {
 
     public static void main(String[] args) {
-       
+        try {
+            // Set FlatLaf as the look and feel
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+        }
+        
         DbManager manager = new DbManager();
         StartupScreen initialScreen = new StartupScreen();
         initialScreen.setVisible(true);    
@@ -23,6 +32,5 @@ public class MathQuizProject {
                 DbManager.closeDbConnection();
             }
         });
-        
     }
 }

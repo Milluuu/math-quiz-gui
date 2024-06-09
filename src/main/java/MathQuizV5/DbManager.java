@@ -33,31 +33,44 @@ public class DbManager {
             System.out.println("Error: " + e.getMessage());
         }
     }
+        
+// Setup the database and create tables if not exist
+    public static void setupDatabase() {
+        if (conn == null) {
+            try {
+                conn = DriverManager.getConnection(URL);
+//                dbSetup();
+            } catch (SQLException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+    }
     
     //updates the users score uso
     public static void updateBasicScore(String username, int score){
         try {
             Statement statement = conn.createStatement();
-            String updateQuery = "UPDATE UserInfo SET score = " + score + " WHERE username = '" + username + "'";
+            String updateQuery = "UPDATE GameSessions SET score = " + score + " WHERE username = '" + username + "' AND gameType = 'Math'";
             statement.executeUpdate(updateQuery);
             statement.close();
-            System.out.println("Score has been updated");
+            System.out.println("Basic score has been updated");
         } catch (SQLException e) {
-            System.out.println("There has been an error updating the score: " + e.getMessage());
+            System.out.println("There has been an error updating the basic score: " + e.getMessage());
         }
     }
     
-    public static void updateScienceScore(String username, int score){
+    public static void updateScienceScore(String username, int score) {
         try {
             Statement statement = conn.createStatement();
-            String updateQuery = "UPDATE UserInfo SET score = " + score + " WHERE username = '" + username + "'";
+            String updateQuery = "UPDATE GameSessions SET score = " + score + " WHERE username = '" + username + "' AND gameType = 'Science'";
             statement.executeUpdate(updateQuery);
             statement.close();
-            System.out.println("Score has been updated");
+            System.out.println("Science score has been updated");
         } catch (SQLException e) {
-            System.out.println("There has been an error updating the score: " + e.getMessage());
+            System.out.println("There has been an error updating the science score: " + e.getMessage());
         }
-    }   
+    }
+ 
     
     public static void addGameSession(String username, String gameType, int score) {
         try {
@@ -136,13 +149,30 @@ public class DbManager {
         Player player = null;
         try {
             Statement statement = conn.createStatement();
-            String query = "SELECT * FROM UserInfo WHERE username = '" + username + "' AND password = '" + password + "'"; 
+            String query = "SELECT * FROM UserInfo WHERE username = '" + username + "' AND password = '" + password + "'";
             ResultSet result = statement.executeQuery(query);
             if (result.next()) {
                 String user = result.getString("username");
                 String pass = result.getString("password");
-                int score = result.getInt("score");
-                player = new Player(user, pass, score);
+                player = new Player(user, pass, 0);
+
+                // Retrieve the basic score from the GameSessions table
+                String basicQuery = "SELECT score FROM GameSessions WHERE username = '" + username + "' AND gameType = 'Math'";
+                ResultSet basicResult = statement.executeQuery(basicQuery);
+                if (basicResult.next()) {
+                    int basicScore = basicResult.getInt("score");
+                    player.setBasicScore(basicScore);
+                }
+                basicResult.close();
+
+                // Retrieve the science score from the GameSessions table
+                String scienceQuery = "SELECT score FROM GameSessions WHERE username = '" + username + "' AND gameType = 'Science'";
+                ResultSet scienceResult = statement.executeQuery(scienceQuery);
+                if (scienceResult.next()) {
+                    int scienceScore = scienceResult.getInt("score");
+                    player.setScienceScore(scienceScore);
+                }
+                scienceResult.close();
             }
             result.close();
             statement.close();
@@ -150,7 +180,8 @@ public class DbManager {
             System.out.println("Error: " + e.getMessage());
         }
         return player;
-    }
+}
+
     
     //this returves the players username and score and displays it into the table depending on what mode
     public static List<Player> getHighScore(String mode) {
@@ -181,6 +212,7 @@ public class DbManager {
         }
         return highScores;
     }
+
 
     
  
