@@ -31,7 +31,7 @@ public class StartupScreen extends JFrame {
     
     private Player player;
     private int currentQuestionIndex = 1; //curent question index to 1
-    private final int totalNumberOfQuestions = 10; //set it to 100
+    private final int totalNumberOfQuestions = 100; //set it to 100
     private BasicQuestion basicQuestion;
     private ScienceQuestion scienceQuestion;
     private GameTimer timer;
@@ -793,7 +793,6 @@ public class StartupScreen extends JFrame {
                 player.updateBasicScore(10); // Update score by 10 points for correct answer
                 bAnswerCheckLbl.setText("Correct");
             } else {
-                player.updateBasicScore(-5);
                 bAnswerCheckLbl.setText("Incorrect");
             }
 
@@ -837,7 +836,6 @@ public class StartupScreen extends JFrame {
                 player.updateScienceScore(10); // Update score by 10 points for correct answer
                 sAnswerCheckLbl.setText("Correct");
             } else {
-                player.updateScienceScore(-5);
                 sAnswerCheckLbl.setText("Incorrect");
             }
 
