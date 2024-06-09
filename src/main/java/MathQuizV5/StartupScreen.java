@@ -467,13 +467,13 @@ public class StartupScreen extends JFrame {
         bQuestionLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bQuestionLbl.setText("(math question)");
         bQuestionPanel.add(bQuestionLbl);
-        bQuestionLbl.setBounds(341, 184, 255, 50);
+        bQuestionLbl.setBounds(340, 190, 255, 50);
 
         bQuestionNumberLbl.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         bQuestionNumberLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bQuestionNumberLbl.setText("Question 1");
         bQuestionPanel.add(bQuestionNumberLbl);
-        bQuestionNumberLbl.setBounds(380, 99, 191, 67);
+        bQuestionNumberLbl.setBounds(380, 100, 191, 67);
 
         bQuitToMenuBtn.setText("Quit quiz");
         bQuitToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -482,7 +482,7 @@ public class StartupScreen extends JFrame {
             }
         });
         bQuestionPanel.add(bQuitToMenuBtn);
-        bQuitToMenuBtn.setBounds(229, 353, 117, 25);
+        bQuitToMenuBtn.setBounds(230, 360, 117, 22);
 
         bNextMathQuestionBtn.setText("Next question");
         bNextMathQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -491,7 +491,7 @@ public class StartupScreen extends JFrame {
             }
         });
         bQuestionPanel.add(bNextMathQuestionBtn);
-        bNextMathQuestionBtn.setBounds(595, 353, 117, 25);
+        bNextMathQuestionBtn.setBounds(600, 360, 117, 22);
         bQuestionPanel.add(bAnswerField);
         bAnswerField.setBounds(400, 280, 143, 49);
 
@@ -510,13 +510,13 @@ public class StartupScreen extends JFrame {
         sQuestionNumberLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sQuestionNumberLbl.setText("Question 1");
         sQuestionPanel.add(sQuestionNumberLbl);
-        sQuestionNumberLbl.setBounds(390, 100, 200, 70);
+        sQuestionNumberLbl.setBounds(370, 100, 200, 70);
 
         sQuestionLbl.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         sQuestionLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         sQuestionLbl.setText("(math question)");
         sQuestionPanel.add(sQuestionLbl);
-        sQuestionLbl.setBounds(160, 180, 650, 110);
+        sQuestionLbl.setBounds(140, 180, 650, 110);
 
         sQuitToMenuBtn.setText("Quit quiz");
         sQuitToMenuBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -525,9 +525,9 @@ public class StartupScreen extends JFrame {
             }
         });
         sQuestionPanel.add(sQuitToMenuBtn);
-        sQuitToMenuBtn.setBounds(240, 380, 117, 25);
+        sQuitToMenuBtn.setBounds(220, 380, 117, 22);
         sQuestionPanel.add(sAnswerField);
-        sAnswerField.setBounds(420, 300, 128, 46);
+        sAnswerField.setBounds(400, 300, 128, 46);
 
         sNextMathQuestionBtn.setText("Next question");
         sNextMathQuestionBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -536,12 +536,12 @@ public class StartupScreen extends JFrame {
             }
         });
         sQuestionPanel.add(sNextMathQuestionBtn);
-        sNextMathQuestionBtn.setBounds(600, 380, 117, 25);
+        sNextMathQuestionBtn.setBounds(580, 380, 117, 22);
 
         sAnswerCheckLbl.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         sAnswerCheckLbl.setText("(check corrent)");
         sQuestionPanel.add(sAnswerCheckLbl);
-        sAnswerCheckLbl.setBounds(600, 320, 96, 19);
+        sAnswerCheckLbl.setBounds(580, 320, 96, 19);
         sAnswerCheckLbl.setVisible(false);
 
         getContentPane().add(sQuestionPanel, "card8");
@@ -566,7 +566,7 @@ public class StartupScreen extends JFrame {
             }
         });
         endGamePanel.add(bToMainMenuBtn);
-        bToMainMenuBtn.setBounds(218, 321, 127, 25);
+        bToMainMenuBtn.setBounds(218, 321, 136, 22);
 
         exitGameLbl.setText("Exit game");
         exitGameLbl.addActionListener(new java.awt.event.ActionListener() {
@@ -575,7 +575,7 @@ public class StartupScreen extends JFrame {
             }
         });
         endGamePanel.add(exitGameLbl);
-        exitGameLbl.setBounds(620, 320, 130, 25);
+        exitGameLbl.setBounds(620, 320, 130, 22);
 
         getContentPane().add(endGamePanel, "card10");
 
@@ -594,7 +594,7 @@ public class StartupScreen extends JFrame {
             }
         });
         highScoreViewer.add(viewMathScoresBtn);
-        viewMathScoresBtn.setBounds(570, 100, 122, 25);
+        viewMathScoresBtn.setBounds(570, 100, 122, 22);
 
         viewScienceScoresBtn.setText("Science");
         viewScienceScoresBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -603,7 +603,7 @@ public class StartupScreen extends JFrame {
             }
         });
         highScoreViewer.add(viewScienceScoresBtn);
-        viewScienceScoresBtn.setBounds(238, 103, 122, 25);
+        viewScienceScoresBtn.setBounds(238, 103, 122, 22);
 
         highScoreTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -628,11 +628,11 @@ public class StartupScreen extends JFrame {
         }
 
         highScoreViewer.add(jScrollPane2);
-        jScrollPane2.setBounds(238, 182, 453, 197);
+        jScrollPane2.setBounds(238, 182, 452, 197);
 
         currentLeaderboardLbl.setText("jLabel1");
         highScoreViewer.add(currentLeaderboardLbl);
-        currentLeaderboardLbl.setBounds(360, 160, 210, 15);
+        currentLeaderboardLbl.setBounds(360, 160, 210, 16);
 
         highScoreBkToMenu.setText("Back to menu");
         highScoreBkToMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -641,7 +641,7 @@ public class StartupScreen extends JFrame {
             }
         });
         highScoreViewer.add(highScoreBkToMenu);
-        highScoreBkToMenu.setBounds(419, 412, 99, 25);
+        highScoreBkToMenu.setBounds(419, 412, 103, 22);
 
         getContentPane().add(highScoreViewer, "card11");
 
