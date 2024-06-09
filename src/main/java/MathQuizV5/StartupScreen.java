@@ -727,15 +727,21 @@ public class StartupScreen extends JFrame {
     private void cAccountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cAccountBtnActionPerformed
         String username = cUserField.getText();
         String password = new String(cPasswordField.getPassword());
-        
+
+        // Validation to check for empty fields
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter both username and password", "Error", JOptionPane.ERROR_MESSAGE);
+            return; // Exit the method without proceeding
+        }
+
         DbManager.registerUser(username, password);
-        
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException ex) {
             Logger.getLogger(StartupScreen.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         registerPanel.setVisible(false);
         loginPanel.setVisible(true);
     }//GEN-LAST:event_cAccountBtnActionPerformed
