@@ -1,1 +1,1 @@
-#MathquizV5
+MathquizV5
